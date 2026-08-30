@@ -31,7 +31,6 @@ export const WebSocketProvider: React.FC<{ children: ReactNode }> = ({ children 
 
     let apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
     if (!apiUrl.startsWith('http')) apiUrl = `https://${apiUrl}`;
-    const wsUrl = apiUrl.replace(/^http/, 'ws');
     const newClient = new Client({
       webSocketFactory: () => new SockJS(`${apiUrl}/ws`),
       connectHeaders: {
