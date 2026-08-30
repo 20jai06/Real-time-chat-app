@@ -2,6 +2,7 @@ services:
   - type: web
     name: chat-backend
     env: docker
+    plan: free
     dockerfilePath: ./backend/Dockerfile
     envVars:
       - key: SPRING_DATASOURCE_URL
@@ -31,5 +32,6 @@ services:
 
 databases:
   - name: chat-db
+    plan: free
     databaseName: chatdb
     user: chatuser
