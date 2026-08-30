@@ -34,10 +34,7 @@ services:
     staticPublishPath: ./dist
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: chat-backend
-          property: host
+        value: https://chat-backend-2qot.onrender.com
 
 databases:
   - name: chat-db
