@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/chatdb
-    username: chatuser
-    password: chatpassword
+    url: jdbc:postgresql://${DB_HOST:localhost}:${DB_PORT:5432}/${DB_NAME:chatdb}
+    username: ${DB_USER:chatuser}
+    password: ${DB_PASSWORD:chatpassword}
   jpa:
     hibernate:
       ddl-auto: update

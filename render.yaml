@@ -5,15 +5,23 @@ services:
     plan: free
     dockerfilePath: ./backend/Dockerfile
     envVars:
-      - key: SPRING_DATASOURCE_URL
+      - key: DB_HOST
         fromDatabase:
           name: chat-db
-          property: connectionString
-      - key: SPRING_DATASOURCE_USERNAME
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: chat-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: chat-db
+          property: database
+      - key: DB_USER
         fromDatabase:
           name: chat-db
           property: user
-      - key: SPRING_DATASOURCE_PASSWORD
+      - key: DB_PASSWORD
         fromDatabase:
           name: chat-db
           property: password
