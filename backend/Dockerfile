@@ -10,4 +10,4 @@ FROM eclipse-temurin:17-jre-jammy
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-Xmx300m", "-jar", "app.jar"]
+ENTRYPOINT ["sh", "-c", "unset SPRING_DATASOURCE_URL SPRING_DATASOURCE_USERNAME SPRING_DATASOURCE_PASSWORD && java -Xmx300m -jar app.jar"]
