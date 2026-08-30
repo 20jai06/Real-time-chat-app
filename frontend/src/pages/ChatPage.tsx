@@ -35,6 +35,9 @@ const ChatPage = () => {
   
   const [newChatUser, setNewChatUser] = useState('');
 
+  let apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+  if (!apiUrl.startsWith('http')) apiUrl = `https://${apiUrl}`;
+
   useEffect(() => {
     if (!user) {
       navigate('/login');
@@ -65,8 +68,6 @@ const ChatPage = () => {
       return () => unsubscribe();
     }
   }, [activeChat, connected]);
-
-  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
   const loadChats = async () => {
     try {

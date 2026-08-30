@@ -27,7 +27,7 @@ services:
         fromService:
           type: web
           name: chat-backend
-          property: url
+          property: host
 
 databases:
   - name: chat-db

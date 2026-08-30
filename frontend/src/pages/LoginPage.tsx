@@ -13,7 +13,8 @@ const LoginPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+      let apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
+      if (!apiUrl.startsWith('http')) apiUrl = `https://${apiUrl}`;
       const res = await axios.post(`${apiUrl}/api/auth/login`, { username, password });
       login(res.data.token, res.data.username, res.data.id);
       navigate('/chat');
